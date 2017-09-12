@@ -11,6 +11,7 @@
       <Control height="20"/>
       <Label name="lb" text="info" />
       <Control height="20"/>
+	  <Button width="200" name="bn0" text="00视频循环页" />
       <Button width="200" name="bn1" text="01扫码进入" />
       <Button width="200" name="bn2" text="02游戏列表"/>
       <Button width="200" name="bn3" text="03游戏详情（游戏视频）" />

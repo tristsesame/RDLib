@@ -57,7 +57,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
 	//SetMgr()->_strPhone = L"999-888-777";
 
-	IdleTrackerInit();
+	//IdleTrackerInit();
 
 
 	CMainDlg		*pMainWnd = new CMainDlg;
@@ -75,7 +75,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	DEL( pMainWnd );
 
 
-	IdleTrackerTerm();
+	//IdleTrackerTerm();
 
 	mgTraceA( "Quit!" );
 

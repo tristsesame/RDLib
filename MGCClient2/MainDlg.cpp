@@ -1,7 +1,7 @@
 #include "StdAfx.h"
 #include "MainDlg.h"
 
-//#include "VlcWindow.h"
+#include "00VlcWindow.h"
 //#include "WindowTip.h"
 //
 //#include "InfoWindow.h"
@@ -15,6 +15,7 @@
 
 #include "01WndScanEnter.h"
 #include "02GamePadDlg.h"
+#include "03GameVideoPlayDlg.h"
 
 
 CMainDlg::CMainDlg(void)
@@ -77,7 +78,7 @@ void CMainDlg::Notify( TNotifyUI& msg )
 			//{
 			//	CVlcWindow::Show( m_hWnd );
 			//}
-		}								   
+		}							   
 		else if( strSenderName == L"bn2" )
 		{
 			C02GamePadDlg		dlg;
@@ -85,7 +86,9 @@ void CMainDlg::Notify( TNotifyUI& msg )
 		}
 		else if( strSenderName == L"bn3" )
 		{
-			//CChargeWnd::Show( m_hWnd );
+			C03GameVideoPlayDlg	dlg;
+			dlg.SetData(_T("≤‚ ‘”Œœ∑"),_T("–›œ–£¨∏Ò∂∑"),_T("D:\\ljf\\RDProj\\RDLib\\bin\\Debug\\video.mp4"),false);
+			dlg.DoModal( m_hWnd, L"" );
 		}
 		else if( strSenderName == L"bn4" )
 		{
@@ -109,6 +112,18 @@ void CMainDlg::Notify( TNotifyUI& msg )
 		{
 			//ShowInfo( L"hello world" );
 			thStart();
+		}
+		else if( strSenderName == L"bn0" )
+		{
+
+			//if( CVlcWindow::IsShow() )
+			//{
+			//	CVlcWindow::Hide();
+			//}
+			//else
+			{
+				CVlcWindow::Show( m_hWnd );
+			}
 		}
 	}
 }

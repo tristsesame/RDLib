@@ -1,0 +1,14 @@
+bin
+debug
+release
+curl
+idleTracker
+ipch
+js_test
+libs
+libvlc_lib
+*.user
+*.aps
+*.exp
+temp
+test2d

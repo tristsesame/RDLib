@@ -24,7 +24,7 @@ LRESULT C02GamePadDlg::OnClose( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& b
 
 void C02GamePadDlg::Init()
 {
-
+	return;
 }
 
 void C02GamePadDlg::Notify( TNotifyUI& msg )

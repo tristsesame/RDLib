@@ -22,6 +22,7 @@
     <None Include="MGCClient2.ico">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -57,6 +58,12 @@
     <ClInclude Include="02GamePadDlg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="00VlcWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="03GameVideoPlayDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -84,6 +91,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="02GamePadDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="00VlcWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="03GameVideoPlayDlg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
