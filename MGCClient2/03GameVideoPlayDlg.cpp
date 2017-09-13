@@ -66,7 +66,7 @@ void C03GameVideoPlayDlg::Init()
 		m_pLabelTags->SetText(m_strTags.c_str());
 	}
 
-	Play();
+	//Play();
 }
 
 
@@ -97,7 +97,7 @@ void C03GameVideoPlayDlg::Play()
 		libvlc_mp = libvlc_media_player_new_from_media (libvlc_m);
 
 		//on windows
-		libvlc_media_player_set_hwnd (libvlc_mp, m_hWnd );
+		libvlc_media_player_set_hwnd (libvlc_mp, m_pWnd );
 
 		// play the media_player
 		int x=libvlc_media_player_play (libvlc_mp);
@@ -137,11 +137,15 @@ LRESULT C03GameVideoPlayDlg::HandleMessage( UINT uMsg, WPARAM wParam, LPARAM lPa
 		break;
 	case WM_MOUSEMOVE:
 		{
+			//ShowWindow(m_pWnd, SW_SHOW); // 显示窗口
+			//UpdateWindow(m_pWnd);
 		}
 		break;
 
 	case WM_LBUTTONDBLCLK:
 		{
+			//ShowWindow(m_pWnd, SW_SHOW); // 显示窗口
+			//UpdateWindow(m_pWnd);
 		}
 		break;
 
@@ -159,6 +163,12 @@ LRESULT C03GameVideoPlayDlg::HandleMessage( UINT uMsg, WPARAM wParam, LPARAM lPa
 
 	case WM_CREATE:
 		{
+			m_pWnd  = CreateWindow(_T("BUTTON"), _T("win32"), WS_VISIBLE | WS_CHILD , 150, 300, 400, 330, this->m_hWnd, NULL, NULL, NULL);
+			m_pWnd2 = CreateWindow(_T("BUTTON"), _T("win322"), WS_VISIBLE |BS_PUSHBUTTON| WS_CHILD , 10, 440, 400, 30, this->m_hWnd, NULL, NULL, NULL);
+			int k = GetLastError();
+			SetWindowPos(m_pWnd, HWND_NOTOPMOST, 150, 300, 400, 330, SWP_NOMOVE | SWP_NOSIZE); 
+			SetWindowPos(m_pWnd2,HWND_TOPMOST,15,440,200,30,SWP_SHOWWINDOW);
+			Play();
 		}
 		break;
 

@@ -19,6 +19,8 @@ public:
 	LRESULT HandleMessage(UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 private:
+	HWND m_pWnd;
+	HWND m_pWnd2;
 	CWndUI *m_pWndVideo;
 	CLabelUI *m_pLabelTitle;
 	CLabelUI *m_pLabelTags;
