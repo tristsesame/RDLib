@@ -11,7 +11,6 @@
       <Control height="20"/>
       <Label name="lb" text="info" />
       <Control height="20"/>
-	  <Button width="200" name="bn0" text="00视频循环页" />
       <Button width="200" name="bn1" text="01扫码进入" />
       <Button width="200" name="bn2" text="02游戏列表"/>
       <Button width="200" name="bn3" text="03游戏详情（游戏视频）" />
@@ -22,8 +21,8 @@
       <Button width="200" name="bn8" text="08断网提示（体验中）"/>
 
       <Control />
-      <Button width="200" name="bn6" text="任务栏隐藏/显示" visible="false" />
-      <Button width="200" name="bn7" text="检测当前hook时间" visible="false" />
+      <Button width="200" name="bnTask1" text="任务1" />
+      <Button width="200" name="bnTask2" text="任务2" />
       
       
       <Control />

@@ -1,7 +1,9 @@
 #pragma once
 
 #include "globalData.h"
+#include "Define.h"
 
+class CDataManager;
 class C01WndScanEnter;
 class C02GamePadDlg;
 class C04ConfirmDlg;
@@ -48,5 +50,33 @@ public:
 	CDialogBase* m_gameDlg;
 	//扫码登录页
 	CDialogBase* m_scanEnterDlg;
+
+//ljf'new add
+private:
+	CDataManager* m_dataManager;
+	//取得所有后台配置数据
+	void InitAllData();
+
+	//phone
+	MGCDataDefine::mgcHttpPhoneResult m_dataPhoneResult;
+
+	/*
+	//QRCode 
+	mgcHttpQRCode m_dataQRCode;
+	mgcHttpQRCodeResult m_dataQRCodeResult;
+
+	//down file
+	mgcHttpDownFile m_dataDownFile;
+	mgcHttpDownFileResult m_dataDownFileResult;
+	*/
+
+	//game family
+	MGCDataDefine::mgcHttpGameFamily m_dataGameFamily;
+	MGCDataDefine::mgcHttpGameFamilyResult m_dataGameFamilyResult;
+
+	//game info list
+	MGCDataDefine::mgcHttpGame m_dataGame;
+	MGCDataDefine::mgcHttpGameResult m_dataGameResult;
+
 };
 

@@ -99,9 +99,6 @@
     <ClInclude Include="04ConfirmWnd.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DefineEventWndSwitch.h">  
-      <Filter>Header Files</Filter>
-    </ClInclude>      
     <ClInclude Include="Gallery2UI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -112,6 +109,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="D2HostableWnd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DataManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="func.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -195,6 +201,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="D2HostableWnd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DataManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

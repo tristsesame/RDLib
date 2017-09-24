@@ -27,6 +27,7 @@
 
 #include "XTask.h"
 
+#include "DataManager.h"
 
 CMainDlg::CMainDlg(void)
 	//: m_pDlgPayment( nullptr )
@@ -47,6 +48,12 @@ CMainDlg::~CMainDlg(void)
 	}
 
 	_mapDlgs.clear();
+
+	//ljf add
+	if( m_dataManager )
+	{
+		delete m_dataManager;
+	}
 }
 
 void CMainDlg::Init()
@@ -54,7 +61,30 @@ void CMainDlg::Init()
 	::SetTimer( m_hWnd, 1, 1000, NULL );
 	thStart();
 
+	//ljf add 二期接口的数据模块
+	//设置一些数据
 	GlobalData::Instance()->setMainHwnd(this->GetHWND());
+
+	//设置data manager
+	CStringA  strWeb = (CStringA)SetMgr()->_strWeb;
+	//find host and ip
+	int pos = strWeb.Find(':',5);
+	int len = strWeb.GetLength();
+
+	CStringA strPort = strWeb.Right(len - pos - 1);
+	CStringA strHost = strWeb.Left(pos);
+
+	len = strHost.GetLength();
+	pos = strHost.Find("http://");
+	if(pos != -1 )
+	{
+		strHost = strHost.Right(len - pos - 7);
+	}
+
+	m_dataManager = new CDataManager(strHost.GetBuffer(0),strPort.ToInt());
+
+	InitAllData();
+	//ljf add end
 
 	CControlUI	*pCtrl = FindCtrl(L"bn3");
 	pCtrl->OnEvent += MakeDelegate(this, &CMainDlg::OnChildEvent);
@@ -343,7 +373,29 @@ LRESULT CMainDlg::HandleMessage( UINT uMsg, WPARAM wParam, LPARAM lParam )
 	{
 		onDlgShow(MGC_DEFINE_WIN_PAY_INFO);
 	}
-	
+	//以下是二期的数据接口,取到消息后的响应
+	else if( WM_MCG_DATA_GET_PHONE_RESULT == uMsg )
+	{
+		if( 1 == lParam )
+		{
+			m_dataManager->getPhoneData(m_dataPhoneResult);
+		}
+	}
+	else if( WM_MCG_DATA_GET_GAME_FAMILY_RESULT == uMsg )
+	{
+		if( 1 == lParam )
+		{
+			m_dataManager->getGameFamilyResult(m_dataGameFamilyResult);
+		}
+	}
+	else if( WM_MCG_DATA_GET_GAME_RESULT == uMsg )
+	{
+		if( 1 == lParam )
+		{
+			m_dataManager->getGameResult(m_dataGameResult);
+		}
+	}
+
 	return CDialogBase::HandleMessage(uMsg, wParam, lParam);
 }
 
@@ -558,4 +610,14 @@ void CMainDlg::onDlgShow( int id )
 		m_nCurrentPage = id; 
 
 	}
+}
+
+void CMainDlg::InitAllData()
+{
+	//取电话号码
+	m_dataManager->requestPhone();
+	//取游戏列表
+	m_dataManager->requestAllGameFamily();
+	//取所有游戏
+	m_dataManager->requestAllGame();
 }
