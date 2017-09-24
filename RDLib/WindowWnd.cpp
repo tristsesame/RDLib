@@ -559,6 +559,11 @@ void CWindowWnd::OnFinalMessage(HWND /*hWnd*/)
 {
 }
 
+void CWindowWnd::Invalidate( BOOL bErase )
+{
+	::InvalidateRect( m_hWnd, nullptr, bErase );
+}
+
 //UINT CWindowWnd::ShowModal()
 //{
 //	ASSERT(::IsWindow(m_hWnd));
@@ -595,6 +600,8 @@ CDialogWnd::CDialogWnd():m_ExitModal(false),m_DialogResult(0)
 
 UINT CDialogWnd::ShowModal()
 {
+	m_ExitModal = false;
+
 	//如果是模态显示的窗口,则不要在OnFinal中析构自己,否则IsWindow会导致this->m_hWnd访问违例
 	if (::IsWindow(m_hWnd))
 	{		

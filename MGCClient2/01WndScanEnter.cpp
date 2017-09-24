@@ -43,6 +43,7 @@ LRESULT C01WndScanEnter::HandleMessage( UINT uMsg, WPARAM wParam, LPARAM lParam 
 			if( _time <= 0 )
 			{
 				KillTimer( m_hWnd, 1 );
+				::SendMessage(GlobalData::Instance()->getMainHwnd(),WM_MCG_SCAN_EXIT,0,0);
 				PostQuitMessage( 0 );
 			}
 		}
@@ -52,12 +53,19 @@ LRESULT C01WndScanEnter::HandleMessage( UINT uMsg, WPARAM wParam, LPARAM lParam 
 		{
 			//Hide();
 			//::PostMessage( _hHostWnd, WM_SHOWA, 3, 0 );
+		::SendMessage(GlobalData::Instance()->getMainHwnd(),WM_MCG_SCAN_EXIT,0,0);
+		PostQuitMessage( 0 );
 		}
 		break;
 	case WM_LBUTTONUP:
 		{
 			if( _bHover )
+			{
+				Hide();
+				//PostQuitMessage( 0 );
+				::SendMessage(GlobalData::Instance()->getMainHwnd(),WM_MCG_SCAN_EXIT,0,0);
 				PostQuitMessage( 0 );
+			}
 		}
 		break;
 	case WM_MOUSEMOVE:
@@ -168,7 +176,9 @@ LRESULT C01WndScanEnter::HandleMessage( UINT uMsg, WPARAM wParam, LPARAM lParam 
 	case WM_CLOSE:
 		{
 			//CMainHelper::ShowTrayWndAndStartWnd( true );
-			PostQuitMessage(0);
+			//PostQuitMessage(0);
+			::SendMessage(GlobalData::Instance()->getMainHwnd(),WM_MCG_SCAN_EXIT,0,0);
+			PostQuitMessage( 0 );
 		}
 		break;
 	}
@@ -177,4 +187,81 @@ LRESULT C01WndScanEnter::HandleMessage( UINT uMsg, WPARAM wParam, LPARAM lParam 
 		return nRet;
 
 	return CWindowWnd::HandleMessage( uMsg, wParam, lParam );
+}
+
+
+
+
+
+
+C01ScanEnterDlg::C01ScanEnterDlg(void)
+{
+	_time = 30;
+}
+
+
+C01ScanEnterDlg::~C01ScanEnterDlg(void)
+{
+}
+
+void C01ScanEnterDlg::Init()
+{
+	::ShowWindow( m_hWnd, SW_MAXIMIZE );
+	//CLayeredDialogBase::Init();
+
+	SetTimer( m_hWnd, 1, 1000, nullptr );
+}
+
+LRESULT C01ScanEnterDlg::OnClose( UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled )
+{
+	//EndModal( IDCANCEL );
+	ShowWindow( false );
+	return 0;
+}
+
+CControlUI* C01ScanEnterDlg::CreateControl( LPCTSTR pstrClass )
+{
+	return NULL;
+}
+
+void C01ScanEnterDlg::Notify( TNotifyUI& msg )
+{
+	CStringW	strSenderName = msg.pSender->GetName();
+	CStringW	strType = msg.sType;
+
+	if( strType == L"click")
+	{
+		if( strSenderName == L"bnOK" )
+		{
+			::SendMessage(GlobalData::Instance()->getMainHwnd(),WM_MCG_SCAN_EXIT,0,0);
+			EndModal( IDOK );
+		}
+		else if( strSenderName == L"bnCancel" )
+		{
+			::SendMessage(GlobalData::Instance()->getMainHwnd(),WM_MCG_SCAN_EXIT,0,0);
+			EndModal( IDCANCEL );
+		}
+	}
+	else if( strType == L"timer" )
+	{
+	}
+}
+
+LRESULT C01ScanEnterDlg::HandleMessage( UINT uMsg, WPARAM wParam, LPARAM lParam )
+{
+	if( WM_TIMER == uMsg )
+	{
+		CStringW		str;
+		str.Format( L"·µ»ØÊ×Ò³£¨%ds£©", _time );
+		FindCtrl( L"bnOK" )->SetText( str );
+
+		_time--;
+		if( _time <= 0 )
+		{
+			KillTimer( m_hWnd, 1 );
+			EndModal( 0 );
+		}
+	}
+
+	return CDialogBase::HandleMessage(uMsg, wParam, lParam);
 }

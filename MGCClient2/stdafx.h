@@ -49,12 +49,20 @@ using namespace Gdiplus;
 #pragma comment(lib, "PreventAction.lib")
 
 #include "ThreadWrap.h"
+#include "globalData.h"
 
 #define		APPTITLE			L"mgcclient2"
 #define		LOG_FILE			"\\mgcclient2.log"
 #define		CONFIG_INI			L"mgcclient2.ini"
 
 #define		WM_SHOW_WINDOW		(WM_APP+100)
+#define		WM_GAME_PAD_GAMELOGIN  (WM_APP+101)
+
+// 画廊 自己滚动后，需要发送此消息 告诉 滚动条
+#define		WM_GLY_SETVS_RATIO		WM_APP+1000
+#define		WM_GLY_CLICK_LEFT		WM_APP+1001
+#define		WM_GLY_CLICK_RIGHT		WM_APP+1002
+
 
 
 #if defined _M_IX86

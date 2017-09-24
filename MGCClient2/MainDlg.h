@@ -1,6 +1,16 @@
 #pragma once
 
-//class CDlgPayment;
+#include "globalData.h"
+
+class C01WndScanEnter;
+class C02GamePadDlg;
+class C04ConfirmDlg;
+class C05NetErrorDlg;
+class C06AdminLoginDlg;
+class C07PayInfoDlg;
+class C08NetInterruptDlg;
+
+class XTask;
 class CMainDlg  : public CDialogBase
 				, xdmp::ThreadWrap
 {
@@ -20,7 +30,23 @@ public:
 	virtual void	thread_main();
 
 	int		m_nCurrentPage;
+	bool	OnChildEvent( void* paramters );
 
-	//CDlgPayment *m_pDlgPayment;
+	
+	void	fnTask1();	
+	shared_ptr<XTask>	_task1;
+
+	void	fnTask2();	
+	shared_ptr<XTask>	_task2;
+
+	map< int, CDialogBase* >	_mapDlgs;
+	CDialogBase*	_pDlgCurrent;
+
+	void		onDlgShowModal( int id );
+	void		onDlgShow( int id );
+	//游戏列表窗口始终存在
+	CDialogBase* m_gameDlg;
+	//扫码登录页
+	CDialogBase* m_scanEnterDlg;
 };
 

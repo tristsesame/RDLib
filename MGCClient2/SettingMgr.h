@@ -27,6 +27,8 @@ public:
 	CStringW	_duration;
 	CStringW	_charging;
 	CStringW	_cost;
+	CStringW	_user_phone;
+	CStringW	_user_nickname;
 };
 
 

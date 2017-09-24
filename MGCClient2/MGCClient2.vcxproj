@@ -45,6 +45,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)temp\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -79,7 +80,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
     <None Include="MGCClient2.ico" />
     <None Include="ReadMe.txt" />
     <None Include="small.ico" />
@@ -87,7 +87,24 @@
   <ItemGroup>
     <ClInclude Include="01WndScanEnter.h" />
     <ClInclude Include="02GamePadDlg.h" />
-    <ClInclude Include="03GameVideoPlayDlg.h" />
+    <ClInclude Include="02FloatWnd.h" />
+    <ClInclude Include="04ConfirmWnd.h" />
+    <ClInclude Include="04ConfirmDlg.h" />
+    <ClInclude Include="05NetErrorDlg.h" />
+    <ClInclude Include="06AdminLoginDlg.h" />
+    <ClInclude Include="07PayInfoDlg.h" />
+    <ClInclude Include="08NetInterruptDlg.h" />
+    <ClInclude Include="CategoryUI.h" />
+    <ClInclude Include="DefineEventWndSwitch.h" />
+    <ClInclude Include="D2dEngine.h" />
+    <ClInclude Include="D2dObjectLib.h" />
+    <ClInclude Include="D2HostableWnd.h" />
+    <ClInclude Include="Gallery2UI.h" />
+    <ClInclude Include="GalleryUI.h" />
+    <ClInclude Include="globalData.h" />
+    <ClInclude Include="HScrollUI.h" />
+    <ClInclude Include="LayeredDialogBase.h" />
+    <ClInclude Include="LayeredWindowDrawer.h" />
     <ClInclude Include="MainDlg.h" />
     <ClInclude Include="MainHelper.h" />
     <ClInclude Include="MGCClient2.h" />
@@ -97,12 +114,28 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="ThreadWrap.h" />
     <ClInclude Include="TSingletonWindow.h" />
-    <ClInclude Include="00VlcWindow.h" />
+    <ClInclude Include="XTask.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="01WndScanEnter.cpp" />
     <ClCompile Include="02GamePadDlg.cpp" />
-    <ClCompile Include="03GameVideoPlayDlg.cpp" />
+    <ClCompile Include="02FloatWnd.cpp" />
+    <ClCompile Include="04ConfirmWnd.cpp" />
+    <ClCompile Include="04ConfirmDlg.cpp" />
+    <ClCompile Include="05NetErrorDlg.cpp" />
+    <ClCompile Include="06AdminLoginDlg.cpp" />
+    <ClCompile Include="07PayInfoDlg.cpp" />
+    <ClCompile Include="08NetInterruptDlg.cpp" />
+    <ClCompile Include="CategoryUI.cpp" />
+    <ClCompile Include="D2dEngine.cpp" />
+    <ClCompile Include="D2dObjectLib.cpp" />
+    <ClCompile Include="D2HostableWnd.cpp" />
+    <ClCompile Include="Gallery2UI.cpp" />
+    <ClCompile Include="GalleryUI.cpp" />
+    <ClCompile Include="globalData.cpp" />
+    <ClCompile Include="HScrollUI.cpp" />
+    <ClCompile Include="LayeredDialogBase.cpp" />
+    <ClCompile Include="LayeredWindowDrawer.cpp" />
     <ClCompile Include="MainDlg.cpp" />
     <ClCompile Include="MainHelper.cpp" />
     <ClCompile Include="MGCClient2.cpp" />
@@ -113,7 +146,7 @@
     </ClCompile>
     <ClCompile Include="ThreadWrap.cpp" />
     <ClCompile Include="TSingletonWindow.cpp" />
-    <ClCompile Include="00VlcWindow.cpp" />
+    <ClCompile Include="XTask.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="MGCClient2.rc" />

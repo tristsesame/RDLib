@@ -22,7 +22,6 @@
     <None Include="MGCClient2.ico">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -58,10 +57,61 @@
     <ClInclude Include="02GamePadDlg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="00VlcWindow.h">
+    <ClInclude Include="CategoryUI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="03GameVideoPlayDlg.h">
+    <ClInclude Include="GalleryUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="HScrollUI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LayeredWindowDrawer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="02FloatWnd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="04ConfirmDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="05NetErrorDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="06AdminLoginDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="08NetInterruptDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="07PayInfoDlg.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="globalData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="XTask.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LayeredDialogBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="04ConfirmWnd.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DefineEventWndSwitch.h">  
+      <Filter>Header Files</Filter>
+    </ClInclude>      
+    <ClInclude Include="Gallery2UI.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D2dEngine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D2dObjectLib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="D2HostableWnd.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -93,10 +143,58 @@
     <ClCompile Include="02GamePadDlg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="00VlcWindow.cpp">
+    <ClCompile Include="CategoryUI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="03GameVideoPlayDlg.cpp">
+    <ClCompile Include="GalleryUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HScrollUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LayeredWindowDrawer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="02FloatWnd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="04ConfirmDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="05NetErrorDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="06AdminLoginDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="08NetInterruptDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="07PayInfoDlg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="globalData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="XTask.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LayeredDialogBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="04ConfirmWnd.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Gallery2UI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D2dEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D2dObjectLib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="D2HostableWnd.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

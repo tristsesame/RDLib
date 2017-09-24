@@ -9,6 +9,8 @@
 #include "MainDlg.h"
 #include "MainHelper.h"
 
+#include "globalData.h"
+
 
 int APIENTRY _tWinMain(HINSTANCE hInstance,
                      HINSTANCE hPrevInstance,
@@ -26,6 +28,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
 	CAppData::SetInstance(hInstance);
 	CAppData::SetResourcePath( CAppData::GetInstancePath() + L"mgc2/" );
+
 
 	if( nullptr == SetMgr() )
 	{
@@ -57,7 +60,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 
 	//SetMgr()->_strPhone = L"999-888-777";
 
-	//IdleTrackerInit();
+	IdleTrackerInit();
 
 
 	CMainDlg		*pMainWnd = new CMainDlg;
@@ -75,7 +78,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	DEL( pMainWnd );
 
 
-	//IdleTrackerTerm();
+	IdleTrackerTerm();
 
 	mgTraceA( "Quit!" );
 
